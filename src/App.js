@@ -1,8 +1,13 @@
-import React from "react";
+import React, { Suspense } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Restaurant from "./Restaurant";
-import DataFetching from "./DataFetching";
+import { delay, Loading } from "./helpers";
+
+const DataFetching = React.lazy(() =>
+  import("./DataFetching").then(delay(500))
+);
+const Restaurant = React.lazy(() => import("./Restaurant").then(delay(2000)));
+const NeverLoading = React.lazy(() => new Promise(() => {}));
 
 const App = () => {
   return (
@@ -21,8 +26,15 @@ const App = () => {
       </header>
 
       <div className="App-experiments">
-        <DataFetching />
-        <Restaurant />
+        <Suspense fallback={<Loading />}>
+          <DataFetching />
+        </Suspense>
+        <Suspense fallback={<Loading />}>
+          <Restaurant />
+        </Suspense>
+        <Suspense fallback={<Loading />}>
+          <NeverLoading />
+        </Suspense>
       </div>
     </div>
   );

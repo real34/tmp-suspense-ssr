@@ -36,3 +36,22 @@ h1 {
   border-bottom: 1px solid #ccc;
   padding-bottom: 1em;
 }
+
+.loading {
+  background: #999;
+  color: #fff;
+  font-size: 3em;
+}
+
+.DataFetching-items {
+  display: flex;
+  flex-wrap: wrap;
+}
+.DataFetching-items > * {
+  margin: 0.5em auto;
+  width: 25%;
+}
+.DataFetching-item {
+  background: #ddd;
+  border: 1px solid #ddd;
+}

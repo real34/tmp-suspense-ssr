@@ -56,7 +56,7 @@ const Restaurant = () => {
 
   return (
     <section>
-      <h1>Restaurant</h1>
+      <h1>Restaurant (WIP)</h1>
       <p>Current dish: {currentDish}</p>
 
       {nextDish && <button onClick={handleNextDish}>Next dish</button>}
